@@ -1,7 +1,9 @@
 <div class="col-sm-6 mx-auto">
-    <h1 class="text-center m-4">Sign up</h1>
+    <h1 class="text-center border-bottom p-4 mb-3">Sign up</h1>
 
-    <%= form_for :user, url: users_path do |f| %>
+    <%= form_for @user do |f| %>
+        <%= render 'shared/error_messages' %>
+
         <div class="form-group">
             <%= f.label :name %>
             <%= f.text_field :name, class: 'form-control' %>
@@ -24,5 +26,4 @@
 
         <%= f.submit "Create a new account", class: 'btn btn-primary btn-block' %>
     <% end %>
-
 </div>
