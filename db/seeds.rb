@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+# create! will output error feedback, if there is, in the terminal
+# change email to your own personal email
+User.create!(
+  name: "John Doe",
+  email: "example@railstutorial.org",
+  password: "password"
+)
+
+50.times do |n|
+  User.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.unique.email,
+    password: "password"
+  )
+end
