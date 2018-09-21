@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_login, except: [:new, :create]
+  before_action :require_admin, only: :destroy
 
   def index
     @users = User.paginate(page: params[:page], per_page: 10)
@@ -53,5 +54,9 @@ class UsersController < ApplicationController
         flash[:info] = "Please log in."
         redirect_to login_url
       end
+    end
+
+    def require_admin
+      redirect_to(root_path) unless current_user.admin?
     end
 end
