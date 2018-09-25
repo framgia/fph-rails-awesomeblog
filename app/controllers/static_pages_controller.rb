@@ -3,12 +3,15 @@ class StaticPagesController < ApplicationController
     # Different home view if there is a logged user
     if logged_in?
       @micropost = Micropost.new
-      @microposts = current_user.microposts
+
+      # To be updated after follow function
+      @microposts = current_user.microposts.paginate(page: params[:page], per_page: 10)
 
       render 'users/home_feed'
     end
   end
 
   def about
+      @microposts = current_user.microposts.paginate(page: params[:page])
   end
 end

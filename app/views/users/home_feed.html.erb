@@ -39,6 +39,11 @@
                     <div class="text-muted">Nothing to show</div>
                 <% end %>
             </div>
+
+            <div class="card-footer paginate text-center">
+                <!-- Pass the collection to this method, because the controller name for this is not microposts, but static_pages -->
+                <%= will_paginate @microposts if @microposts.any? %>
+            </div>
         </div>
     </div>
 </div>

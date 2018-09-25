@@ -6,7 +6,7 @@ class MicropostsController < ApplicationController
       redirect_to root_url
     else
       # home_feed view needs this variable, to display microposts
-      @microposts = current_user.microposts
+      @microposts = current_user.microposts.paginate(page: params[:page])
       render 'users/home_feed'
     end
   end

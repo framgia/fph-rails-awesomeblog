@@ -1,4 +1,30 @@
-<%= gravatar_for @user %>
+<div class="jumbotron p-3 px-5">
+    <div class="float-right text-center">
+        <strong style="font-size: 3rem;"><%= @microposts.count %></strong><br>
+        <span class="text-muted">micropost(s)</span>
+    </div>
 
-<h1><%= @user.name %></h1>
-<%= @user.email %>
+    <div class="media">
+        <div class="mr-3 align-self-center">
+            <%= gravatar_for @user, size: 120 %>
+        </div>
+
+        <div class="media-body my-auto">
+            <h1><%= @user.name %></h1>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <% if @microposts.any? %>
+            <ul class="list-unstyled">
+                <%= render @microposts %>
+            </ul>
+
+            <div class="paginate text-center">
+                <%= will_paginate @microposts %>
+            </div>
+        <% end %>
+    </div>
+</div>
