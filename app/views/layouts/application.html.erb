@@ -22,9 +22,9 @@
             <% end %>
 
             <%= yield %>
-            
+
             <!-- To display the current logged in user -->
-            <%= debug session[:user_id] if Rails.env == 'development' %>
+            <%#= debug session[:user_id] if Rails.env == 'development' %>
         </div>
 
         <%= render 'layouts/footer' %>
