@@ -1,9 +1,13 @@
 class MicropostsController < ApplicationController
   def create
-    micropost = current_user.microposts.build(micropost_params)
+    @micropost = current_user.microposts.build(micropost_params)
 
-    if micropost.save
+    if @micropost.save
       redirect_to root_url
+    else
+      # home_feed view needs this variable, to display microposts
+      @microposts = current_user.microposts
+      render 'users/home_feed'
     end
   end
 
