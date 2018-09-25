@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :microposts
+
   # Filter method to transform email to small cases before saving to db
   before_save { email.downcase! }
 
