@@ -31,10 +31,10 @@
                 <hr>
 
                 <% if @microposts.any? %>
-                    <% @microposts.each do |micropost| %>
-                        <!-- Temporary display for micropost content -->
-                        <div><%= micropost.content %></div>
-                    <% end %>
+                    <!-- rendering a collection: micropost/_micropost.html.erb -->
+                    <ul class="list-unstyled">
+                        <%= render @microposts %>
+                    </ul>
                 <% else %>
                     <div class="text-muted">Nothing to show</div>
                 <% end %>
