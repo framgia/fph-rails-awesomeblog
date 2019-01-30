@@ -6,29 +6,42 @@
 
                 <h1><%= current_user.name %></h1>
                 <%= current_user.email %>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col">
+                        <h4>40</h4>
+                        <small>microposts</small>
+                    </div>
+                    <div class="col">
+                        <h4>40</h4>
+                        <small>followers</small>
+                    </div>
+                    <div class="col">
+                        <h4>40</h4>
+                        <small>following</small>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <%= form_for(@micropost) do |f| %>
+                    <%= render 'shared/error_messages', object: f.object %>
+
+                    <div class="form-group">
+                        <%= f.text_area :content, class: "form-control", placeholder: "Share your thoughts...", rows: 5 %>
+                    </div>
+
+                    <%= f.submit "Post", class: "btn btn-primary btn-block"%>
+                <% end %>
             </div>
         </div>
     </div>
 
     <div class="col-md-8">
         <div class="card">
-            <div class="card-header">
-                <%= form_for(@micropost) do |f| %>
-                    <%= render 'shared/error_messages', object: f.object %>
-
-                    <div class="input-group">
-                        <%= f.text_area :content, class: "form-control", placeholder: "Share your thoughts..." %>
-
-                        <div class="input-group-append">
-                            <%= f.submit "Post", class: "btn btn-primary"%>
-                        </div>
-                    </div>
-                <% end %>
-            </div>
-
             <div class="card-body">
-                <h4>Micropost feed</h3>
-                <hr>
+                <h4>Feed</h3>
 
                 <% if @microposts.any? %>
                     <!-- rendering a collection: micropost/_micropost.html.erb -->

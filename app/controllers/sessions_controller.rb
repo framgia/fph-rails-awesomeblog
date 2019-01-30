@@ -10,9 +10,8 @@ class SessionsController < ApplicationController
       flash[:info] = "Successfully logged in."
       redirect_to root_url
     else
-      # use now method if request is not redirected
-      flash.now[:danger] = "Invalid credentials."
-      render 'new'
+      flash[:danger] = "Invalid credentials."
+      redirect_to login_url
     end
   end
 

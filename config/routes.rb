@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   resources :users, except: :new
   resources :sessions, only: :create
-  resources :microposts, only: :create
+  resources :microposts, only: [:create, :destroy]
 end

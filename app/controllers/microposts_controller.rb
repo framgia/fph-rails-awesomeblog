@@ -11,6 +11,13 @@ class MicropostsController < ApplicationController
     end
   end
 
+  def destroy
+    micropost = Micropost.find(params[:id])
+    micropost.destroy
+
+    redirect_to root_url
+  end
+
   private
     def micropost_params
       params.require(:micropost).permit(:content)  

@@ -1,17 +1,8 @@
 @import "bootstrap";
+@import "font-awesome";
 
 .paginate {
   nav {
     display: inline-block;
-  }
-}
-
-.new_micropost {
-  // To fix bootstrap bug with auto generate ruby class : .field_with_errors
-  .field_with_errors {
-    position: relative;
-    flex: 1 1 auto;
-    width: 1%;
-    margin-bottom: 0;
   }
 }

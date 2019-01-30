@@ -5,13 +5,13 @@ class StaticPagesController < ApplicationController
       @micropost = Micropost.new
 
       # To be updated after follow function
-      @microposts = current_user.microposts.paginate(page: params[:page], per_page: 10)
+      @microposts = current_user.microposts.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
 
       render 'users/home_feed'
     end
   end
 
   def about
-      @microposts = current_user.microposts.paginate(page: params[:page])
+    
   end
 end
