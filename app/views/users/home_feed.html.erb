@@ -11,7 +11,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <h4>40</h4>
+                        <h4><%= current_user.microposts.count %></h4>
                         <small>microposts</small>
                     </div>
                     <div class="col">
@@ -30,6 +30,10 @@
 
                     <div class="form-group">
                         <%= f.text_area :content, class: "form-control", placeholder: "Share your thoughts...", rows: 5 %>
+                    </div>
+
+                    <div class="form-group">
+                        <%= f.file_field :picture, class: "mt-2" %>
                     </div>
 
                     <%= f.submit "Post", class: "btn btn-primary btn-block"%>
