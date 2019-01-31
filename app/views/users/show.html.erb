@@ -13,7 +13,7 @@
         </div>
         <div class="col-md-2 text-center">
             <strong style="font-size: 3rem;"><%= @microposts.count %></strong><br>
-            <span class="text-muted">micropost(s)</span>
+            <span class="text-muted"><%= "microposts".pluralize(@microposts.count) %></span>
         </div>
     </div>
 </div>

@@ -11,15 +11,17 @@
 
                 <div class="row">
                     <div class="col">
-                        <h4><%= current_user.microposts.count %></h4>
-                        <small>microposts</small>
+                        <h4 class="font-weight-bold text-muted m-0">
+                            <%= link_to current_user.microposts.count, current_user %>
+                        </h4>
+                        <small><%= "micropost".pluralize(current_user.microposts.count) %></small>
                     </div>
                     <div class="col">
-                        <h4>40</h4>
+                        <h4 class="font-weight-bold text-muted m-0">40</h4>
                         <small>followers</small>
                     </div>
                     <div class="col">
-                        <h4>40</h4>
+                        <h4 class="font-weight-bold text-muted m-0">40</h4>
                         <small>following</small>
                     </div>
                 </div>
@@ -33,7 +35,7 @@
                     </div>
 
                     <div class="form-group">
-                        <%= f.file_field :picture, class: "mt-2" %>
+                        <%= f.file_field :picture, accept: "image/jpeg, image/gif, image/png", class: "mt-2" %>
                     </div>
 
                     <%= f.submit "Post", class: "btn btn-primary btn-block"%>
